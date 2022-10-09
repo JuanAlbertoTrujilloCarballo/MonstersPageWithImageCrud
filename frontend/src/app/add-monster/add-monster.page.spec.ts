@@ -12,7 +12,7 @@ describe('AddMonsterPage', () => {
       declarations: [ AddMonsterPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
-
+    
     fixture = TestBed.createComponent(AddMonsterPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

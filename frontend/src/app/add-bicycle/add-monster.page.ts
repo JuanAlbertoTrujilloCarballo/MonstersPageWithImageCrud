@@ -34,32 +34,24 @@ export class AddMonsterPage implements OnInit {
       weakness: ['', [Validators.required]],
     });
   }
-
   get errorControl() {
     return this.monsterForm.controls;
   }
-
   takePhoto() {
-    // DECOMMENT:
     this.photoService.takePhoto().then((data) => {
       this.capturedPhoto = data.webPath;
     });
   }
 
   pickImage() {
-    // DECOMMENT:
     this.photoService.pickImage().then((data) => {
       this.capturedPhoto = data.webPath;
     });
   }
-
   discardImage() {
-    // DECOMMENT:
     this.capturedPhoto = null;
   }
-
   async submitForm() {
-    // DECOMMENT:
     this.isSubmitted = true;
     if (!this.monsterForm.valid) {
       console.log('Please provide all the required values!');
@@ -70,7 +62,6 @@ export class AddMonsterPage implements OnInit {
         const response = await fetch(this.capturedPhoto);
         blob = await response.blob();
       }
-
       this.monsterService
         .createMonster(this.monsterForm.value, blob)
         .subscribe((data) => {
